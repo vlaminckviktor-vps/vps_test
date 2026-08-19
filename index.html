@@ -1,12 +1,724 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-    <title>Mijn website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vandamme Loodgieterswerken | Loodgieter Sint-Niklaas</title>
+
+    <meta name="description"
+          content="Vandamme Loodgieterswerken voor sanitair, lekkages, leidingen en renovaties in Sint-Niklaas en omgeving.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #f7f9fc;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATIE */
+
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #0b5ed7;
+        }
+
+        .logo span {
+            color: #172033;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #172033;
+            margin-left: 28px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #0b5ed7;
+        }
+
+        .nav-button {
+            background: #0b5ed7;
+            color: white !important;
+            padding: 11px 18px;
+            border-radius: 8px;
+        }
+
+        .nav-button:hover {
+            background: #0849a8;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(5,25,55,0.95), rgba(5,25,55,0.65)),
+                linear-gradient(135deg, #0b5ed7, #0a315d);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        .hero-small {
+            color: #8fc5ff;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.05;
+            max-width: 800px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 650px;
+            color: #e5edf8;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: #0b7cff;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #0864cc;
+            transform: translateY(-2px);
+        }
+
+        .button-light {
+            background: white;
+            color: #172033;
+        }
+
+        .button-light:hover {
+            background: #edf3fa;
+        }
+
+        /* SECTIES */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: #0b5ed7;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: 12px auto 0;
+            color: #667085;
+        }
+
+        /* DIENSTEN */
+
+        .services {
+            background: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service {
+            background: #f7f9fc;
+            padding: 32px;
+            border-radius: 14px;
+            border: 1px solid #e7ebf1;
+            transition: 0.25s;
+        }
+
+        .service:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background: #dcebff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .service h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #667085;
+        }
+
+        /* OVER ONS */
+
+        .about {
+            background: #eef5fc;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin: 12px 0 20px;
+        }
+
+        .about p {
+            color: #596579;
+            margin-bottom: 18px;
+        }
+
+        .check {
+            margin: 12px 0;
+            font-weight: 600;
+        }
+
+        .check::before {
+            content: "✓";
+            color: #0b5ed7;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .about-card {
+            background: #0b315c;
+            color: white;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .about-card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #dce8f5;
+        }
+
+        /* SPOED */
+
+        .emergency {
+            background: #0b5ed7;
+            color: white;
+            text-align: center;
+        }
+
+        .emergency h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .emergency p {
+            max-width: 650px;
+            margin: auto auto 30px;
+            color: #e5efff;
+        }
+
+        .phone {
+            font-size: 28px;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .contact-card {
+            padding: 35px;
+            background: #f7f9fc;
+            border-radius: 14px;
+            border: 1px solid #e7ebf1;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .contact-item {
+            margin: 18px 0;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .contact-item a {
+            color: #0b5ed7;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #08182c;
+            color: #aebed1;
+            padding: 35px 25px;
+        }
+
+        .footer-content {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* MOBIEL */
+
+        @media (max-width: 800px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 580px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            section {
+                padding: 65px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Welkom op mijn website!</h1>
-    <p>Dit is mijn eerste website.</p>
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            Vandamme <span>Loodgieterswerken</span>
+        </div>
+
+        <nav>
+            <a href="#diensten">Diensten</a>
+            <a href="#over-ons">Over ons</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-button">Offerte aanvragen</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                Loodgieter in Sint-Niklaas & omgeving
+            </div>
+
+            <h1>
+                Uw woning.<br>
+                Onze vakkennis.
+            </h1>
+
+            <p>
+                Professionele loodgieterswerken voor woningen en bedrijven.
+                Van een kleine lekkage tot een complete sanitaire installatie.
+            </p>
+
+            <div class="buttons">
+                <a href="#contact" class="button button-primary">
+                    Vraag een offerte aan
+                </a>
+
+                <a href="tel:+3212345678" class="button button-light">
+                    📞 Bel ons
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DIENSTEN -->
+
+    <section class="services" id="diensten">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>Onze diensten</span>
+                <h2>Alles voor uw sanitair</h2>
+                <p>
+                    Van herstellingen tot nieuwe installaties.
+                    Wij zorgen voor een professionele oplossing.
+                </p>
+            </div>
+
+
+            <div class="service-grid">
+
+                <div class="service">
+                    <div class="service-icon">🔧</div>
+                    <h3>Loodgieterswerken</h3>
+                    <p>
+                        Herstellingen en installaties van leidingen,
+                        kranen en sanitaire voorzieningen.
+                    </p>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">💧</div>
+                    <h3>Lekkages</h3>
+                    <p>
+                        Een lekkende kraan of leiding?
+                        Wij zoeken de oorzaak en herstellen het probleem.
+                    </p>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">🚿</div>
+                    <h3>Badkamer</h3>
+                    <p>
+                        Plaatsing en renovatie van douches,
+                        toiletten, wastafels en ander sanitair.
+                    </p>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">🔥</div>
+                    <h3>Verwarming</h3>
+                    <p>
+                        Onderhoud en herstellingen van sanitaire
+                        en verwarmingsinstallaties.
+                    </p>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">🏠</div>
+                    <h3>Renovaties</h3>
+                    <p>
+                        Complete sanitaire installaties voor
+                        nieuwbouw en renovatieprojecten.
+                    </p>
+                </div>
+
+                <div class="service">
+                    <div class="service-icon">🚨</div>
+                    <h3>Dringende herstellingen</h3>
+                    <p>
+                        Een onverwachte lekkage of ander dringend
+                        probleem? Neem zo snel mogelijk contact op.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OVER ONS -->
+
+    <section class="about" id="over-ons">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+
+                    <span style="color:#0b5ed7;font-weight:bold;">
+                        OVER VANDAMME
+                    </span>
+
+                    <h2>
+                        Vakmanschap waarop u kunt rekenen.
+                    </h2>
+
+                    <p>
+                        Bij Vandamme Loodgieterswerken staan kwaliteit,
+                        duidelijke communicatie en een correcte service
+                        centraal.
+                    </p>
+
+                    <p>
+                        Wij helpen particulieren en bedrijven met zowel
+                        kleine herstellingen als grotere projecten.
+                    </p>
+
+                    <div class="check">Duidelijke afspraken</div>
+                    <div class="check">Professionele uitvoering</div>
+                    <div class="check">Persoonlijke service</div>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <h3>Een probleem met uw sanitair?</h3>
+
+                    <p>
+                        Wacht niet tot een kleine lekkage een groot probleem
+                        wordt. Neem contact met ons op en we bekijken samen
+                        de beste oplossing.
+                    </p>
+
+                    <br>
+
+                    <a href="#contact" class="button button-light">
+                        Neem contact op
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SPOED -->
+
+    <section class="emergency">
+
+        <div class="container">
+
+            <h2>Dringend een loodgieter nodig?</h2>
+
+            <p>
+                Bij een ernstige lekkage of ander dringend probleem
+                kunt u telefonisch contact met ons opnemen.
+            </p>
+
+            <a href="tel:+3212345678" class="button button-light">
+                📞 Bel direct
+            </a>
+
+            <span class="phone">
+                03 123 45 67
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>Contact</span>
+                <h2>Vraag uw offerte aan</h2>
+                <p>
+                    Neem vrijblijvend contact met ons op.
+                </p>
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+
+                    <h3>Contactgegevens</h3>
+
+                    <div class="contact-item">
+                        <strong>Telefoon</strong>
+                        <a href="tel:+3212345678">
+                            03 123 45 67
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>E-mail</strong>
+                        <a href="mailto:info@vandamme-loodgieter.be">
+                            info@vandamme-loodgieter.be
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Werkgebied</strong>
+                        Sint-Niklaas en omgeving
+                    </div>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <h3>Wanneer zijn wij bereikbaar?</h3>
+
+                    <div class="contact-item">
+                        <strong>Maandag - Vrijdag</strong>
+                        08:00 - 18:00
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Zaterdag</strong>
+                        09:00 - 16:00
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Dringende problemen</strong>
+                        Telefonisch contact
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <strong>Vandamme Loodgieterswerken</strong><br>
+            Sint-Niklaas & omgeving
+        </div>
+
+        <div>
+            © 2026 Vandamme Loodgieterswerken
+        </div>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
